@@ -33,17 +33,18 @@ function setup() {
 
 
 function draw() {
+    // specimen variables ------------
+    // add border
     fill(0, 0, 0, 0)
     strokeWeight(2)
     stroke(255)
-    // rect(0,0, width, height)
-
-    strokeWeight(0)
+    // rect(0,0, width, height) 
+    strokeWeight(0) // reset stroke
+    
 
     let cl = []
     let rmax = 40
 
-    // specimen variables ------------
     palette = [
         color(112, 132, 68), // light green
         color(58, 90, 45), // dark green
@@ -81,9 +82,9 @@ function draw() {
                 
                 dist = Math.trunc(random(0, 1.1)) // choose transparency distribution skewness
                 if (dist === 1) {
-                    alpha = randn_bm(1, 255, 0.25) // closer to 255
+                    alpha = randn_bm(1, 255, 0.1) // closer to 255
                 } else {
-                    alpha = randn_bm(1, 255, 3)  // closer to 1
+                    alpha = randn_bm(1, 255, 3.2)  // closer to 1
                 }
                 color.setAlpha(alpha) //choose transparency
                 
