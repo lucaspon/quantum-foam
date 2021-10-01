@@ -4,7 +4,7 @@ function setup() {
     x = 10
     let bg = color(Math.trunc(random(0, x)), Math.trunc(random(0, x)), Math.trunc(random(0, x)))
 
-    canvaspx = 1080
+    canvaspx = 600
 
     createCanvas(canvaspx, canvaspx)
     background(bg)
