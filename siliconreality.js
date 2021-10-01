@@ -1,3 +1,21 @@
+function randn_bm(min, max, skew) { // distribution with skewness function
+    let u = 0, v = 0;
+    while (u === 0) u = Math.random() //Converting [0,1) to (0,1)
+    while (v === 0) v = Math.random()
+    let num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v)
+
+    num = num / 10.0 + 0.5 // Translate to 0 -> 1
+    if (num > 1 || num < 0)
+        num = randn_bm(min, max, skew) // resample between 0 and 1 if out of range
+
+    else {
+        num = Math.pow(num, skew) // Skew
+        num *= max - min // Stretch to fill range
+        num += min // offset to min
+    }
+    return num
+}
+
 
 function setup() {
     // background color
@@ -15,11 +33,11 @@ function setup() {
 
 
 function draw() {
-    fill(0,0,0,0)
+    fill(0, 0, 0, 0)
     strokeWeight(2)
     stroke(255)
     // rect(0,0, width, height)
-    
+
     strokeWeight(0)
 
     let cl = []
@@ -56,17 +74,25 @@ function draw() {
     }
 
     // draw shapes
-    for (col = 0; col < numcols-2; col++) {
-        for (row = 0; row < numrows-2; row++) {
+    for (col = 0; col < numcols - 2; col++) {
+        for (row = 0; row < numrows - 2; row++) {
             if (p[col][row] === 1) {
                 color = random(cl)
-                color.setAlpha(random(5,255))
+                
+                dist = Math.trunc(random(0, 1.1)) // choose transparency distribution skewness
+                if (dist === 1) {
+                    alpha = randn_bm(1, 255, 0.25) // closer to 255
+                } else {
+                    alpha = randn_bm(1, 255, 3)  // closer to 1
+                }
+                color.setAlpha(alpha) //choose transparency
+                
                 fill(color)
                 circle(
-                    width / (numcols - 1) * (col+1),
-                    height / (numrows - 1) * (row+1),
+                    width / (numcols - 1) * (col + 1),
+                    height / (numrows - 1) * (row + 1),
                     width / max(numcols, numrows) - (width / numcols * 0.1)
-                    )
+                )
             }
         }
     }
