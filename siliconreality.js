@@ -4,7 +4,7 @@ function setup() {
     x = 10
     let bg = color(Math.trunc(random(0, x)), Math.trunc(random(0, x)), Math.trunc(random(0, x)))
 
-    canvaspx = 700
+    canvaspx = 1080
 
     createCanvas(canvaspx, canvaspx)
     background(bg)
@@ -60,7 +60,7 @@ function draw() {
         for (row = 0; row < numrows-2; row++) {
             if (p[col][row] === 1) {
                 color = random(cl)
-                color.setAlpha(random(35,255))
+                color.setAlpha(random(5,255))
                 fill(color)
                 circle(
                     width / (numcols - 1) * (col+1),
