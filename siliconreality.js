@@ -1,4 +1,5 @@
-function randn_bm(min, max, skew) { // distribution with skewness function
+// distribution with skewness function
+function randn_bm(min, max, skew) {
     let u = 0, v = 0;
     while (u === 0) u = Math.random() //Converting [0,1) to (0,1)
     while (v === 0) v = Math.random()
@@ -26,9 +27,9 @@ function setup() {
 
     createCanvas(canvaspx, canvaspx)
     background(bg)
-    noLoop()
-    angleMode(DEGREES)
-    filter(BLUR)
+    
+    z = height/2
+    h = height/2
 }
 
 
@@ -40,7 +41,7 @@ function draw() {
     stroke(255)
     // rect(0,0, width, height) 
     strokeWeight(0) // reset stroke
-    
+
 
     let cl = []
     let rmax = 40
@@ -79,22 +80,29 @@ function draw() {
         for (row = 0; row < numrows - 2; row++) {
             if (p[col][row] === 1) {
                 color = random(cl)
-                
+
                 dist = Math.trunc(random(0, 1.1)) // choose transparency distribution skewness
                 if (dist === 1) {
-                    alpha = randn_bm(1, 255, 0.1) // closer to 255
+                    alpha = randn_bm(1, 255, 0.15) // closer to 255
                 } else {
-                    alpha = randn_bm(1, 255, 3.2)  // closer to 1
+                    alpha = randn_bm(1, 255, 2.5)  // closer to 1
                 }
                 color.setAlpha(alpha) //choose transparency
-                
+
                 fill(color)
-                circle(
-                    width / (numcols - 1) * (col + 1),
-                    height / (numrows - 1) * (row + 1),
-                    width / max(numcols, numrows) - (width / numcols * 0.1)
-                )
+                x = width / (numcols - 1) * (col + 1)
+                y = height / (numrows - 1) * (row + 1)
+                size = width / max(numcols, numrows) - (width / numcols * 0.1)
+                circle(x, y, size)
             }
         }
     }
+
+    
+    // fill(255,255,255,255)
+    // circle(z, h, 24);
+    // z = z + 1;
+    // h = h + 2;
 }
+
+
