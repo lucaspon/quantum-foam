@@ -41,7 +41,7 @@ function draw() {
     stroke(255)
     // rect(0,0, width, height) 
     strokeWeight(0) // reset stroke
-
+    
 
     let cl = []
     let rmax = 40
@@ -61,8 +61,9 @@ function draw() {
     let numcols = numrows + Math.trunc(random(0, 4)) // # of cols
     let p = []
 
-    // shape colors
-    let n = Math.trunc(random(2, palette.length))
+    // choose shape colors
+    // let n = Math.trunc(random(2, palette.length))
+    let n = 1
     for (i = 0; i <= n; i++) {
         cl[i] = random(palette)
     }
@@ -104,5 +105,4 @@ function draw() {
     // z = z + 1;
     // h = h + 2;
 }
-
 
