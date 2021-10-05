@@ -84,9 +84,9 @@ function draw() {
 
                 dist = Math.trunc(random(0, 1.1)) // choose transparency distribution skewness
                 if (dist === 1) {
-                    alpha = randn_bm(1, 255, 0.15) // closer to 255
+                    alpha = randn_bm(1, 255, 0.4) // closer to 255
                 } else {
-                    alpha = randn_bm(1, 255, 2.5)  // closer to 1
+                    alpha = randn_bm(1, 255, 3)  // closer to 1
                 }
                 color.setAlpha(alpha) //choose transparency
 
