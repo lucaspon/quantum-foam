@@ -27,9 +27,9 @@ function setup() {
 
     createCanvas(canvaspx, canvaspx)
     background(bg)
-    
-    z = height/2
-    h = height/2
+
+    z = height / 2
+    h = height / 2
 }
 
 
@@ -38,13 +38,13 @@ function draw() {
     // add border
     fill(0, 0, 0, 0)
     strokeWeight(2)
-    stroke(255)
+    stroke(200)
     // rect(0,0, width, height) 
     strokeWeight(0) // reset stroke
-    
+
 
     let cl = []
-    let rmax = 40
+    let rmax = 30
 
     palette = [
         color(112, 132, 68), // light green
@@ -58,7 +58,7 @@ function draw() {
     ]
 
     let numrows = Math.trunc(random(4, rmax)) // # of rows
-    let numcols = numrows + Math.trunc(random(0, 4)) // # of cols
+    let numcols = numrows + Math.trunc(random(-4, 4)) // # of cols
     let p = []
 
     // choose shape colors
@@ -93,13 +93,13 @@ function draw() {
                 fill(color)
                 x = width / (numcols - 1) * (col + 1)
                 y = height / (numrows - 1) * (row + 1)
-                size = width / max(numcols, numrows) - (width / numcols * 0.1)
+                size = (width / max(numcols, numrows)) * 0.8
                 circle(x, y, size)
             }
         }
     }
 
-    
+
     // fill(255,255,255,255)
     // circle(z, h, 24);
     // z = z + 1;
