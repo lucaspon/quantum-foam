@@ -44,7 +44,7 @@ function draw() {
 
 
     let cl = []
-    let rmax = 30
+    let rmax = 150
 
     palette = [
         color(112, 132, 68), // light green
@@ -57,7 +57,7 @@ function draw() {
         color(255, 255, 255) // dark orange
     ]
 
-    let numrows = Math.trunc(random(4, rmax)) // # of rows
+    let numrows = Math.trunc(random(8, rmax)) // # of rows
     let numcols = numrows + Math.trunc(random(-4, 4)) // # of cols
     let p = []
 
@@ -72,7 +72,7 @@ function draw() {
     for (col = 0; col <= numcols; col++) {
         p[col] = []
         for (row = 0; row <= numrows; row++) {
-            p[col][row] = Math.trunc(random(0.5, 2)) // this defines the chance of a position having a circle
+            p[col][row] = Math.trunc(random(0.3, 1.3)) // this defines the chance of a position having a circle
         }
     }
 
