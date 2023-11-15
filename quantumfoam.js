@@ -73,6 +73,7 @@ function draw() {
     }
     frameCounter++;
 
+    noStroke();
     drawSketch(sketchData, sketchData.palette[colorIndex]);
 }
 
@@ -83,8 +84,8 @@ function drawSketch(data, currentColor) {
     let cl = [];
     let n = 1; // As per original code, n is always 1
 
-    console.log('rows: ' + numrows)
-    console.log('cols: ' + numcols)
+    // console.log('rows: ' + numrows)
+    // console.log('cols: ' + numcols)
 
     // for (let i = 0; i <= n; i++) {
     //     cl[i] = random(data.palette);
