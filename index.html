@@ -158,32 +158,25 @@
   </head>
 
   <body
-    class="h-screen w-screen md:flex-col bg-black text-slate-400 px-8 md:px-12"
+    class="min-h-screen min-w-screen md:flex-col bg-black text-slate-400 md:px-12"
     style="font-family: Inconsolata"
   >
-    <div class="my-auto flex flex-col md:flex-row gap-5 h-screen p-8 md:p-16">
-      <div class="w-full flex flex-col gap-5 md:w-1/2">
-        <div class="my-auto">
-          <div class="flex flex-col gap-2">
-            <h1 class="text-4xl font-bold text-slate-200">quantum foam</h1>
-            <p class="">by lucaspon</p>
-          </div>
-          <!-- <p>a glimpse into the stormy guts of reality</p> -->
-          <div class="flex flex-col text-left w-fit">
-            <!-- <span id="refreshButton" class="font-bold text-sky-500 mt-8 hover:opacity-70 hover:cursor-pointer">
-                regenerate
-              </span> -->
-            <span
-              id="toggleLoopButton"
-              class="font-bold text-sky-500 mt-8 hover:opacity-70 hover:cursor-pointer"
-            >
-              capture/release
-            </span>
-          </div>
+    <div class="w-screen h-screen flex flex-col md:flex-row gap-5 p-8 md:p-16 justify-center">
+      <div class="w-1/2 my-auto">
+        <div class="flex flex-col gap-2">
+          <h1 class="text-4xl font-bold text-slate-200">quantum foam</h1>
+          <p class="">by lucaspon</p>
+        </div>
+        <div class="flex flex-col text-left w-fit">
+          <span
+            id="toggleLoopButton"
+            class="font-bold text-sky-500 mt-8 hover:opacity-70 hover:cursor-pointer"
+          >
+            capture/release
+          </span>
         </div>
       </div>
-
-      <div id="canvas" class="w-full h-full md:w-1/4"></div>
+      <div id="canvas" class="h-full w-full"></div>
     </div>
   </body>
 </html>
