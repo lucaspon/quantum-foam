@@ -71,30 +71,29 @@
           width: width,
           height: height,
           palette: [
-            // color(112, 132, 68), // light green
-            // color(252, 188, 25), // light yellow
-            // color(251, 215, 0), // dark yellow
-            // color(183, 37, 46), // red
-            // color(248, 147, 29), // light orange
-            // color(223, 103, 39), // dark orange
+            color(162, 192, 108), // light green
+            color(252, 188, 25), // light yellow
+            color(201, 175, 0), // dark yellow
+            color(223, 37, 46), // red
+            color(248, 147, 29), // light orange
+            color(203, 103, 39), // dark orange
             color(255, 255, 255), // white
-            color(155, 155, 155), // white
-            color(100, 100, 100), // white
             color(200, 200, 200), // white
-            color(80, 80, 80), // white
-            color(103, 95, 108), // white
+            color(153, 125, 148), // white
+            // color(100, 100, 100), // white
+            // color(80, 80, 80), // white
           ],
           rmax: 150,
         };
 
         document.getElementById("toggleLoopButton").addEventListener("click", toggleLoop);
-        // noLoop();
+        colorIndex = Math.trunc(random(0, sketchData.palette.length));
       }
 
       function draw() {
-        if (frameCounter % 90 === 0) {
+        if (frameCounter > 0 && frameCounter % 30 === 0) {
           // Change color every 90 frames (1.5 second at 60 fps)
-          colorIndex = (colorIndex + 1) % sketchData.palette.length;
+          noLoop();
         }
         frameCounter++;
 
