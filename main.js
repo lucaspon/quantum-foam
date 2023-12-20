@@ -86,7 +86,7 @@ function draw() {
 
     totalShapes = totalShapes + layerShapes
     document.getElementById('shapeCount').innerText = totalShapes
-    document.getElementById('dataPoints').innerText = totalShapes * 3 + 2*maxLayers + 2
+    document.getElementById('dataPoints').innerText = totalShapes * 3 + 2 * maxLayers + 2
     layerCounter++;
 
 }
@@ -143,7 +143,7 @@ function drawLayer(data, color) {
 
 
     layerShapes = layer.shapes.length
-    artwork.data[layerCounter] = layer;
+    artwork.data[layerCounter - 1] = layer;
 
 }
 
