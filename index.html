@@ -43,13 +43,13 @@
       let frameCounter = 0;
 
       let isLooping = true;
-      function toggleLoop() {
-        if (isLooping) {
-          noLoop();
-        } else {
-          loop();
-        }
-        isLooping = !isLooping; // Toggle the state
+
+      function redrawCanvas() {
+        // console.log(frameCounter)
+        frameCounter = 0;
+        colorIndex = Math.trunc(random(0, sketchData.palette.length));
+        clear()
+        redraw();
       }
 
       function setup() {
@@ -86,26 +86,28 @@
           rmax: 150,
         };
 
-        document.getElementById("toggleLoopButton").addEventListener("click", toggleLoop);
+        document.getElementById("redrawButton").addEventListener("click", redrawCanvas);
         colorIndex = Math.trunc(random(0, sketchData.palette.length));
       }
 
       function draw() {
-        if (frameCounter > 0 && frameCounter % 30 === 0) {
-          // Change color every 90 frames (1.5 second at 60 fps)
+        loop();
+
+        if (frameCounter === 30) {
           noLoop();
         }
-        frameCounter++;
 
+        
         // noStroke()
         // strokeWeight(2)
-
+        
         drawSketch(sketchData, sketchData.palette[colorIndex]);
+        frameCounter++;
       }
 
       function drawSketch(data, currentColor) {
-        let numrows = Math.trunc(random(25, data.rmax)); // # of rows
-        let numcols = numrows + Math.trunc(random(-4, 4)); // # of cols
+        let numrows = Math.trunc(random(10, data.rmax)); // # of rows
+        let numcols = numrows + Math.trunc(random(-10, 10)); // # of cols
         let p = [];
         let cl = [];
         let n = 1; // As per original code, n is always 1
@@ -165,10 +167,10 @@
         </div>
         <div class="flex flex-col text-left w-fit">
           <span
-            id="toggleLoopButton"
+            id="redrawButton"
             class="font-bold text-sky-500 mt-8 hover:opacity-70 hover:cursor-pointer"
           >
-            capture/release
+            redraw
           </span>
         </div>
       </div>
