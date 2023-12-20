@@ -6,6 +6,7 @@ let layerShapes = 0;
 let layerCounter = 0;
 let artwork = {};
 artwork.data = []
+let maxLayers = 15
 
 // distribution with skewness function
 function randn_bm(min, max, skew) {
@@ -67,17 +68,16 @@ function setup() {
     artwork.color = color(red(chosenPalette), green(chosenPalette), blue(chosenPalette));
     artwork.bg = color(red(bg), green(bg), blue(bg))
 
-    document.getElementById('palette').innerText = artwork.color
-
 }
 
 // ------------------------------------------------------------------------------------------------------
 
 function draw() {
+
     // noLoop();
     loop();
 
-    if (layerCounter === 5) {
+    if (layerCounter === maxLayers) {
         noLoop();
         console.log(artwork)
     }
@@ -86,6 +86,7 @@ function draw() {
 
     totalShapes = totalShapes + layerShapes
     document.getElementById('shapeCount').innerText = totalShapes
+    document.getElementById('dataPoints').innerText = totalShapes * 3 + 2*maxLayers + 2
     layerCounter++;
 
 }
@@ -94,7 +95,7 @@ function draw() {
 
 function drawLayer(data, color) {
     let rmax = 150;
-    let rmin = 30;
+    let rmin = 20;
     let layer = {};
 
     layer.rows = Math.trunc(random(rmin, rmax));
@@ -163,9 +164,6 @@ function redrawCanvas() {
 
     colorIndex = Math.trunc(random(0, sketchData.palettes.length));
     chosenPalette = sketchData.palettes[colorIndex]
-
-    let paletteReturn = color(red(chosenPalette), green(chosenPalette), blue(chosenPalette));
-    document.getElementById('palette').innerText = paletteReturn
 
     redraw();
 }
