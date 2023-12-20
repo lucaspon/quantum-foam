@@ -3,7 +3,7 @@
 let sketchData, bg, colorIndex, chosenPalette;
 let totalShapes = 0;
 let layerShapes = 0;
-let layerCounter = 0;
+let layerCounter = 1;
 let artwork = {};
 artwork.data = []
 let maxLayers = 15
